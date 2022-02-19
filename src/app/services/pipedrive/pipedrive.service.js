@@ -1,3 +1,5 @@
+import { Deal } from './deal.entity';
+
 class PipedriveService {
   api;
 
@@ -7,7 +9,14 @@ class PipedriveService {
 
   async getWonDeals() {
     const { data } = await this.api.get('/deals?limit=500&status=won');
-    return data;
+    const deals = data.data.map(({
+      title, value, currency, add_time: addTime,
+    }) => {
+      return new Deal({
+        title, value, currency, addTime,
+      });
+    });
+    return deals;
   }
 }
 

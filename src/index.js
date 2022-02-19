@@ -14,7 +14,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get('/registerEarningsAsOrders', (request, response) => {
+app.get('/registerWonDealsAsOrders', (request, response) => {
   const controller = new OrdersController(createPipedriveService());
   return controller.registerWonDealsAsOrders(request, response);
 });
