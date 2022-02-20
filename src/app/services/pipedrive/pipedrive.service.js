@@ -1,4 +1,4 @@
-import { Deal } from './deal.entity';
+import { Deal } from '../../entities/deal.entity';
 
 class PipedriveService {
   api;
