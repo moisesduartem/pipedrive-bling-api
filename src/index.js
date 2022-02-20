@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import { OrdersController } from './app/controllers/orders/orders.controller';
 import { createPipedriveService } from './app/services/pipedrive/factory';
+import { createBlingService } from './app/services/bling/factory';
 
 dotenv.config({
   path: `environments/.env.${process.env.NODE_ENV.trim()}`,
@@ -15,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/registerWonDealsAsOrders', (request, response) => {
-  const controller = new OrdersController(createPipedriveService());
+  const controller = new OrdersController(createPipedriveService(), createBlingService());
   return controller.registerWonDealsAsOrders(request, response);
 });
 

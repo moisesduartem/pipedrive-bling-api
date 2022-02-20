@@ -1,13 +1,16 @@
 class OrdersController {
   pipedrive;
+  bling;
 
-  constructor(pipedrive) {
+  constructor(pipedrive, bling) {
     this.pipedrive = pipedrive;
+    this.bling = bling;
   }
 
   async registerWonDealsAsOrders(request, response) {
-    const result = await this.pipedrive.getWonDeals();
-    return response.status(200).json(result);
+    const deals = await this.pipedrive.getWonDeals();
+    const registeredDeals = await this.bling.createOrder(deals);
+    return response.status(200).json(registeredDeals);
   }
 }
 
