@@ -1,7 +1,10 @@
 ### Endpoints
 
-- `POST /deals`
-    - Retrieve the deals with won status, add they to the bling API and create a MongoDB collection to each one.
+- `POST /api/deals`
+    - Retrieve the deals with won status from Pipedrive, add they to the Bling API as orders and create a MongoDB collection to each one.
 
-- `GET /deals`
+- `GET /api/deals`
     - Get the collection data aggregated by date and value.
+
+- `GET /api/docs`
+    - Swagger endpoint documentation

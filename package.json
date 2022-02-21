@@ -16,6 +16,7 @@
     "mongoose": "^6.2.2",
     "qs": "^6.10.3",
     "request": "^2.88.2",
+    "swagger-ui-express": "^4.3.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

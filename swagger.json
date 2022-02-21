@@ -1,0 +1,63 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Pipedrive Bling API",
+    "description": "Pipedrive and Bling Integration"
+  },
+  "host": "localhost:3333",
+  "basePath": "/api",
+  "paths": {
+    "/deals": {
+      "post": {
+        "summary": "Retrieve the deals with won status from Pipedrive, add they to the Bling API as orders and create a MongoDB collection to each one.",
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get the collection data aggregated by date and value",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Deal"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Deal": {
+      "required": [
+        "_id",
+        "date",
+        "value"
+      ],
+      "properties": {
+        "_id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "date": {
+          "type": "Date"
+        },
+        "value": {
+          "type": "integer"
+        }
+      }
+     }
+    },
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ]
+  }
