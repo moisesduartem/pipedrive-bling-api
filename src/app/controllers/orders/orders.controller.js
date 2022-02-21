@@ -20,6 +20,11 @@ class OrdersController {
       });
     }
   }
+
+  async getDealsPerDate(request, response) {
+    const deals = await this.dealService.getDealsPerDate();
+    return response.json(deals);
+  }
 }
 
 export { OrdersController };
